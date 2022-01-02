@@ -11313,3 +11313,7 @@ textarea.form-control-lg {
 .counters .view {
   margin-top: 10px;
 }
+
+.pull-right {
+  float: right !important;
+}
