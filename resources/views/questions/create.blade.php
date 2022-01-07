@@ -14,23 +14,19 @@
                         @csrf
                         <div class="form-group">
                             <label for="question-title">Question Title</label>
-                            <input type="text" name="title" id="question-title" class="form-control {{ $errors->has('title') ? 'is-invalid':'' }}">
+                            <input type="text" name="title" id="question-title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}">
 
-                            @if($errors->has('title'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first()->title }}
-                                </div>
-                            @endif
+                            @error('title')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group mt-3">
                             <label for="question-body">Explane Your Question</label>
-                            <textarea name="body" id="question-body" rows="10"  class="form-control {{ $errors->has('body') ? 'is-invalid':'' }}"></textarea>
+                            <textarea name="body" id="question-body" rows="10"  class="form-control @error('body') is-invalid @enderror" value="{{ old('body') }}"></textarea>
                             
-                            @if($errors->has('body'))
-                                <div class="invalid-feedback">
-                                    <strong>{{ $errors->first()->body }}</strong>
-                                </div>
-                            @endif
+                            @error('body')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group mt-3">
                             <button type="submit" class="btn btn-outline-primary btn-lg">Ask This Question</button>
