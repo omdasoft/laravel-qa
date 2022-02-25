@@ -7,11 +7,12 @@
             <div class="card">
                 <div class="card-header">
                     <a href="{{ route('questions.index') }}" class="btn btn-outline-secondary pull-right">Back To All Questions</a>
-                    <h2>Ask Question</h2>
+                    <h2>Edit Question</h2>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('questions.store') }}" method="post">
-                        @include('questions._form', ['buttonText' => 'Ask Question']);
+                    <form action="{{ route('questions.update', $question->id) }}" method="post">
+                        {{ method_field('PUT') }}
+                        @include ('questions._form', ['buttonText' => 'Update Question']);
                     </form>
                 </div>
             </div>
