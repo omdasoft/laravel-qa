@@ -26,7 +26,12 @@
                             </div>
                            <div class="media-body">
                                 <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
-                                <a href="{{ route('questions.edit', $question->id)}}" class="btn btn-sm btn-outline-info pull-right">Edit</a>
+                                <a href="{{ route('questions.edit', $question->id)}}" type="button" class="btn btn-sm btn-outline-info pull-right">Edit</a>
+                                <form method="POST" action="{{ route('questions.destroy', $question->id)}}">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-outline-danger pull-right" onclick="return confirm('Are You Sure ?')">Delete</button>
+                                </form>
                                <p class="lead">
                                     Asked By : 
                                     <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
