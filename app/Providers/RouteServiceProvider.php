@@ -47,6 +47,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+
+        Route::bind('slug', function($slug) {
+            return \App\Models\Question::where('slug', $slug)->first() ?? abort(404);
+        });
     }
 
     /**
