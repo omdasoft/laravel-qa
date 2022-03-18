@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-class QuestionFactory extends Factory
+use App\Models\User;
+use App\Models\Question;
+class AnswerFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -13,11 +15,10 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'title' => rtrim($this->faker->sentence(rand(5, 10), ".")),
             'body' => $this->faker->paragraphs(rand(3, 7), true),
-            'views' => rand(0, 10),
-            //'answers_count' => rand(0, 10),
-            'votes' => rand(-3, 10),
+            'user_id' => User::pluck('id')->random(),
+            'question_id' => Question::pluck('id')->random(),
+            'votes_count' => rand(0, 5),
         ];
     }
 }
