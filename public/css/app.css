@@ -11286,6 +11286,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+body a {
+  text-decoration: none;
+}
+
 .counters {
   margin-right: 30px;
   font-size: 10px;

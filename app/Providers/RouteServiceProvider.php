@@ -49,7 +49,7 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('slug', function($slug) {
-            return \App\Models\Question::where('slug', $slug)->first() ?? abort(404);
+            return \App\Models\Question::with('answers.user')->where('slug', $slug)->first() ?? abort(404);
         });
     }
 

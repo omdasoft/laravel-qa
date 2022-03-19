@@ -7,6 +7,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body{
+    a {
+        text-decoration: none;
+    }
+}
 .counters{
     margin-right: 30px;
     font-size: 10px;
@@ -45,3 +50,4 @@
 .pull-right{
     float: right !important;
 }
+
